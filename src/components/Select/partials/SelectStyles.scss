@@ -1,0 +1,45 @@
+@import "../../../styles";
+
+.Select_Dropdown_root {
+  position: absolute;
+
+  .Select_Dropdown_menu {
+    position: absolute;
+    border-radius: $radius-lg;
+    border: 1px solid $gray-light-color;
+    padding-left: $spacing-lg;
+    max-height: 18rem;
+    overflow-y: auto;
+    @include scrollbar;
+  }
+
+  .Select_Dropdown_list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    gap: $spacing-sm;
+  }
+}
+
+.Select_Item_root {
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  &:hover {
+    background-color: $gray-1-color;
+  }
+
+  &.Select_Item_root_focused {
+    background-color: $primary-1-color;
+    color: $primary-main-color;
+  }
+
+  .Select_Item_p {
+    margin: 0;
+    flex: 1;
+  }
+}

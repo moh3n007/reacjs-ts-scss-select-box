@@ -1,0 +1,48 @@
+@import "../../styles";
+
+.Select_root {
+  position: relative;
+  color: $primary-main-color;
+
+  .Select_input {
+    min-width: 18.75rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 1px solid $gray-main-color;
+    outline: 3px solid transparent;
+    border-radius: $radius-lg;
+    padding: $spacing-lg;
+    padding-right: 2.5rem;
+    @include transitionAll;
+
+    &:focus,
+    &:focus-visible {
+      border-color: $primary-main-color;
+      outline-color: $primary-light-color;
+    }
+  }
+
+  .Select_icon_wrapper {
+    position: absolute;
+    display: flex;
+    right: 0;
+    top: 0;
+    width: 2.5rem;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: $gray-main-color;
+
+    .Select_icon_svg {
+      transform: rotate(0);
+      @include transitionAll;
+
+      &.rotate {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

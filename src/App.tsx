@@ -1,26 +1,69 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// hooks
+import { useState } from "react";
+
+// components
+import Select from "./components/Select";
+
+// types
+import type { SelectDataProps } from "./types/selectProps";
 
 function App() {
+  const [options, setOptions] =
+    useState<Array<SelectDataProps>>(defaultOptions);
+  const [value, setValue] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Select
+      options={options}
+      placeholder="Enter something"
+      onChange={setValue}
+      value={value}
+      onCreateNew={(value) => setOptions((prev) => [value, ...prev])}
+    />
   );
 }
 
 export default App;
+
+const defaultOptions = [
+  {
+    label: "Education 🎓",
+    value: "Education",
+  },
+  {
+    label: "Yeeeah, science! ⚗️",
+    value: "Science",
+  },
+  {
+    label: "Art 🎭",
+    value: "Art",
+  },
+  {
+    label: "Sport ⚽",
+    value: "Sport",
+  },
+  {
+    label: "Games 🎮",
+    value: "Sport",
+  },
+  {
+    label: "Health 🏥",
+    value: "Health",
+  },
+  {
+    label: "Technology 💻",
+    value: "Technology",
+  },
+  {
+    label: "Travel 🌍",
+    value: "Travel",
+  },
+  {
+    label: "Food 🍎",
+    value: "Food",
+  },
+  {
+    label: "Music 🎵",
+    value: "Music",
+  },
+];
